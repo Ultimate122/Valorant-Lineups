@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agent Videos</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            body {
+                background-color: #121212; /* Dark background */
+                color: white; /* White text */
+                text-align: center; /* Centered text */
+            }
+            nav {
+                margin: 20px 0;
+            }
+            nav a {
+                color: #f0f0f0; /* Link color */
+                margin: 0 15px; /* Spacing between links */
+                text-decoration: none; /* No underline */
+            }
+            h2 {
+                margin-top: 20px; /* Space above heading */
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Agent Videos</h1>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="agents.html">Agents</a>
+                <a href="maps.html">Maps</a>
+            </nav>
+        </header>
+    
+        <section>
+            <h2>Videos for <span id="agentName"></span> on <span id="mapName"></span></h2>
+            <div id="videoContainer"></div>
+        </section>
+    
+        <footer>
+            <p>&copy; 2024 Valorant Lineups. All Rights Reserved.</p>
+        </footer>
+    
+        <script>
+            // Retrieve URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const agent = urlParams.get('agent');
+            const map = urlParams.get('map');
+    
+            // Mapping of agent/map to video URLs
+            const videos = {
+                'brimstone': {
+                    'abyss': 'https://www.youtube.com/embed/go-2Ud4TCyc?si=9rDuXiqP0DJPFrnc'
+                },
+                'sova': {
+                    'ascent': 'https://www.youtube.com/embed/go3qGK6P_rQ?si=nkIwqs1VNhGtgTYj',
+                    'icebox': 'https://www.youtube.com/embed/U43Tzcp6nH8?si=wQf8tcTpqbmqfzXy'
+                },
+                'viper': {
+                    'icebox': 'https://www.youtube.com/embed/2p3mAJFJAC4?si=OEdXv2bkvlNUlfwu'
+                }
+            };
+    
+            // Set the agent and map names in the header
+            document.getElementById('agentName').innerText = agent.charAt(0).toUpperCase() + agent.slice(1);
+            document.getElementById('mapName').innerText = map.charAt(0).toUpperCase() + map.slice(1);
+    
+            // Display the video
+            if (videos[agent] && videos[agent][map]) {
+                const videoUrl = videos[agent][map];
+                const videoHtml = `<iframe width="560" height="315" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>`;
+                document.getElementById('videoContainer').innerHTML = videoHtml;
+            } else {
+                document.getElementById('videoContainer').innerText = 'No video available for this selection.';
+            }
+        </script>
+    </body>
+    </html>
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
